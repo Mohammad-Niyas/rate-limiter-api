@@ -1,4 +1,4 @@
-# Rate-Limited API Service
+# Rate-Limiter API Service
 
 A production-considerate rate-limiting API service built with **Go** and **Gin**, implementing the **Sliding Window Log** algorithm for accurate per-user rate limiting under concurrent load.
 
@@ -181,7 +181,3 @@ This follows the **Dependency Inversion Principle** (SOLID).
 6. **Graceful shutdown:** Handle `SIGTERM` signals and drain in-flight requests before stopping.
 7. **API authentication:** Add API key middleware to prevent unauthorized access.
 8. **Retry queue:** For rejected requests, optionally queue them and process when the window clears.
-
-## 📝 License
-
-MIT
