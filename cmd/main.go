@@ -2,12 +2,13 @@ package main
 
 import (
 	"log"
+	"os"
 	"time"
 
+	"github.com/gin-gonic/gin"
 	"github.com/mohammad-niyas/rate-limiter-api/internal/handler"
 	"github.com/mohammad-niyas/rate-limiter-api/internal/ratelimiter"
 	"github.com/mohammad-niyas/rate-limiter-api/internal/store"
-	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -38,7 +39,9 @@ func main() {
 
 	log.Println("Rate Limiter API starting on port 8080...")
 
-	if err := router.Run(":8080"); err != nil {
-		log.Fatalf("Failed to start server: %v", err)
+	if port := os.Getenv("PORT"); port != "" {
+		router.Run(":" + port)
+	} else {
+		router.Run(":8080")
 	}
 }
