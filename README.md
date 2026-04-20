@@ -2,6 +2,26 @@
 
 A production-considerate rate-limiting API service built with **Go** and **Gin**, implementing the **Sliding Window Log** algorithm for accurate per-user rate limiting under concurrent load.
 
+## 🌐 Live Demo
+
+**Base URL:** [`https://rate-limiter-api-h1tz.onrender.com`](https://rate-limiter-api-h1tz.onrender.com)
+
+Try it now:
+```bash
+# Health check
+curl https://rate-limiter-api-h1tz.onrender.com/health
+
+# Submit a request
+curl -X POST https://rate-limiter-api-h1tz.onrender.com/request \
+  -H "Content-Type: application/json" \
+  -d '{"user_id": "test_user", "payload": "hello"}'
+
+# View stats
+curl https://rate-limiter-api-h1tz.onrender.com/stats
+```
+
+> **Note:** Free tier instance may take ~30 seconds to wake up on first request.
+
 ## 🏗️ Architecture
 
 ```
@@ -28,7 +48,7 @@ The `Store` is defined as an **interface**, allowing the storage backend to be s
 ## 🚀 How to Run
 
 ### Prerequisites
-- Go 1.22+
+- Go 1.25+
 
 ### Run Locally
 ```bash
