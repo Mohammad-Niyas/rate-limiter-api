@@ -1,7 +1,6 @@
 module github.com/mohammad-niyas/rate-limiter-api
 
 go 1.22
-
 require github.com/gin-gonic/gin v1.12.0
 
 require (
